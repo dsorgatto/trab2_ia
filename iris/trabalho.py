@@ -11,14 +11,10 @@ from sklearn.metrics import accuracy_score # Para calcualr a acuracia
 from sklearn import cross_validation       # Para usar o kfold
 
 ##################################
-## Funcoes
-##################################
-
-##################################
 ## Iris
 ##################################
-#Abrindo dados com numpy
-iris=pd.read_csv('iris.data',header=None)
+#Abrindo dados com panda
+iris=pd.read_csv('http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data',header=None)
 
 valores = iris.iloc[:,0:4]
 classes = iris.iloc[:,4]
@@ -31,6 +27,7 @@ acuracias=[]
 knn_acu_train=[]
 knn_acu_test=[]
 ks=[3,5,7,9,11]
+
 for i in ks:
   teste=[]
   treino=[]
@@ -41,14 +38,16 @@ for i in ks:
     knn.fit(valores.iloc[treino_ind,:],classes.iloc[treino_ind])
     teste.append(accuracy_score(classes.iloc[teste_ind], knn.predict(valores.iloc[teste_ind,:])))
     treino.append(accuracy_score(classes.iloc[treino_ind], knn.predict(valores.iloc[treino_ind,:])))
-    knn_acu_test.append(np.mean(teste))
-    knn_acu_train.append(np.mean(treino))
+  knn_acu_test.append(np.mean(teste))
+  knn_acu_train.append(np.mean(treino))
 
 plt.clf()
 plt.scatter(ks, knn_acu_test,c="red")
 plt.plot(ks, knn_acu_test,c="red")
 plt.scatter(ks, knn_acu_train,c="blue")
 plt.plot(ks, knn_acu_train,c="blue")
+plt.ylabel('Acuracia')
+plt.xlabel('Numero de vizinhos mais proximos')
 plt.savefig('knn.png')
 
 acuracias.append(max(knn_acu_test))
@@ -63,7 +62,7 @@ for treino_ind, teste_ind in kf:
   gnb.fit(valores.iloc[treino_ind,:],classes.iloc[treino_ind])
   teste.append(accuracy_score(classes.iloc[teste_ind], gnb.predict(valores.iloc[teste_ind,:])))
 
-acuracias.append(naive_bayes(np.mean(teste))
+acuracias.append(np.mean(teste))
 
 #classificador Decision Tree
 teste=[]
@@ -74,6 +73,12 @@ for treino_ind, teste_ind in kf:
   clf.fit(valores.iloc[treino_ind,:],classes.iloc[treino_ind])
   teste.append(accuracy_score(classes.iloc[teste_ind], clf.predict(valores.iloc[teste_ind,:])))
 
+
+tree.export_graphviz(clf, out_file='arvore.dot')
+#Usar o comando abaixo para converter a saida em um arquivo postscript
+os.system("dot -Tps arvore.dot -o arvore.eps")
+os.system("rm arvore.dot")
+
 acuracias.append(np.mean(teste))
 
 plt.clf()
@@ -81,6 +86,8 @@ plt.bar([1,2,3],acuracias)
 plt.xlim(0.5, 4.5)
 plt.ylim(0.8, 1)
 plt.xticks([1.4,2.4,3.4],["Knn","Naive Bayes","Decision Tree"])
+plt.ylabel('Probabilidade')
+plt.xlabel('Algoritimos')
 plt.savefig('acuracias.png')
 
 print "Fim"
