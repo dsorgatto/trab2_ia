@@ -17,42 +17,60 @@ classes = np.loadtxt("iris.data", delimiter=',',dtype='|S15', usecols=[4])
 
 #usando k-fold
 kf = cross_validation.KFold(len(classes), n_folds=10)
-saida=[]
+acuracias=[]
+
 
 #classificador knn
-for treino_ind, teste_ind in kf:
-    knn_iris = KNeighborsClassifier()
-    knn_iris.fit(valores[treino_ind],classes[treino_ind])
-    saida.append(accuracy_score(classes[teste_ind], knn_iris.predict(valores[teste_ind])))
 
-plt.scatter(np.random.normal(1, 0.025, 10) , saida)
+knn_acu_train=[]
+knn_acu_test=[]
+ks=[3,5,7,9,11]
+for i in ks:
+    teste=[]
+    treino=[]
+    for treino_ind, teste_ind in kf:
+        knn_iris = KNeighborsClassifier(n_neighbors=i)
+        knn_iris.fit(valores[treino_ind],classes[treino_ind])
+        teste.append(accuracy_score(classes[teste_ind], knn_iris.predict(valores[teste_ind])))
+        treino.append(accuracy_score(classes[treino_ind], knn_iris.predict(valores[treino_ind])))
+    knn_acu_test.append(np.mean(teste))
+    knn_acu_train.append(np.mean(treino))
 
-saida=[]
+plt.clf()
+plt.plot(ks, knn_acu_test,c="red")
+plt.plot(ks, knn_acu_train,c="blue")
+plt.savefig('iris_knn.png')
+
+
+acuracias.append(knn_acu_test[0])
+k_usado=3
+for i in range(1,len(knn_acu_test)):
+    if knn_acu_test[i]>=knn_acu_train[i]:
+        acuracias[0]=knn_acu_test[i]
+        k_usado=k_usado+i*2
+
 #classificador naive bayes
+teste=[]
 for treino_ind, teste_ind in kf:
     gnb_iris = GaussianNB()
     gnb_iris.fit(valores[treino_ind],classes[treino_ind])
-    saida.append(accuracy_score(classes[teste_ind], gnb_iris.predict(valores[teste_ind])))
-
-plt.scatter(np.random.normal(2, 0.025, 10),saida)
-
+    teste.append(accuracy_score(classes[teste_ind], gnb_iris.predict(valores[teste_ind])))
+acuracias.append(np.mean(teste))
 
 #classificador Decision Tree
-saida=[]
+teste=[]
 for treino_ind, teste_ind in kf:
     clf_iris = tree.DecisionTreeClassifier()
     clf_iris.fit(valores[treino_ind],classes[treino_ind])
-    saida.append(accuracy_score(classes[teste_ind], clf_iris.predict(valores[teste_ind])))
+    teste.append(accuracy_score(classes[teste_ind], clf_iris.predict(valores[teste_ind])))
+acuracias.append(np.mean(teste))
 
-plt.scatter(np.random.normal(3, 0.025, 10),saida)
+plt.clf()
+plt.bar([1,2,3],acuracias)
+plt.xlim(0.5, 4.5)
+plt.ylim(0.8, 1)
+plt.xticks([1.4,2.4,3.4],["Knn","Naive Bayes","Decision Tree"])
+plt.savefig('iris_acuracias.png')
 
-plt.xlim(0, 4)
-plt.ylim(0, 1.1)
-plt.xticks([1,2,3],["Knn","Naive Bayes","Decision Tree"])
-plt.show()
+print "Fim"
 
-
-teste = np.loadtxt("iris.data", delimiter=',',dtype={'names': ('sepal length', 'sepal width', 'petal length', 'petal width', 'label'),'formats': (np.float, np.float, np.float, np.float, '|S15')})
-
-print teste['label']
-print teste[['sepal length', 'sepal width', 'petal length', 'petal width']]
