@@ -1,0 +1,170 @@
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2015.6.2)  9 JUN 2015 08:39
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**Trabalho_IA.tex
+(./Trabalho_IA.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, po
+rtuguese, loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/latex209.def
+File: latex209.def 1998/05/13 v0.52 Standard LaTeX file
+
+
+          Entering LaTeX 2.09 COMPATIBILITY MODE
+ *************************************************************
+    !!WARNING!!    !!WARNING!!    !!WARNING!!    !!WARNING!!   
+ 
+ This mode attempts to provide an emulation of the LaTeX 2.09
+ author environment so that OLD documents can be successfully
+ processed. It should NOT be used for NEW documents!
+ 
+ New documents should use Standard LaTeX conventions and start
+ with the \documentclass command.
+ 
+ Compatibility mode is UNLIKELY TO WORK with LaTeX 2.09 style
+ files that change any internal macros, especially not with
+ those that change the FONT SELECTION or OUTPUT ROUTINES.
+ 
+ Therefore such style files MUST BE UPDATED to use
+          Current Standard LaTeX: LaTeX2e.
+ If you suspect that you may be using such a style file, which
+ is probably very, very old by now, then you should attempt to
+ get it updated by sending a copy of this error message to the
+ author of that file.
+ *************************************************************
+
+\footheight=\dimen102
+\@maxsep=\dimen103
+\@dblmaxsep=\dimen104
+\@cla=\count79
+\@clb=\count80
+\mscount=\count81
+(/usr/share/texlive/texmf-dist/tex/latex/base/tracefnt.sty
+Package: tracefnt 1997/05/29 v3.0j Standard LaTeX package (font tracing)
+\tracingfonts=\count82
+LaTeX Info: Redefining \selectfont on input line 101.
+)
+\symbold=\mathgroup4
+\symsans=\mathgroup5
+\symtypewriter=\mathgroup6
+\symitalic=\mathgroup7
+\symsmallcaps=\mathgroup8
+\symslanted=\mathgroup9
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 293.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 294.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 295.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 301.
+LaTeX Info: Redefining \em on input line 311.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup10
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
+)
+LaTeX Font Info:    Redeclaring math delimiter \lgroup on input line 375.
+LaTeX Font Info:    Redeclaring math delimiter \rgroup on input line 377.
+LaTeX Font Info:    Redeclaring math delimiter \bracevert on input line 379.
+)
+Compatibility mode: loading llncs.sty rather than llncs.cls.
+ (./llncs.sty
+Document Style `llncs', <version 1.2>
+\c@part=\count83
+\c@section=\count84
+\c@subsection=\count85
+\c@subsubsection=\count86
+\c@paragraph=\count87
+\c@figure=\count88
+\c@table=\count89
+\c@@inst=\count90
+\c@@auth=\count91
+\c@theorem=\count92
+\c@example=\count93
+) (./Trabalho_IA.aux)
+\openout1 = `Trabalho_IA.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+Missing character: There is no Ã in font cmbx12!
+Missing character: There is no § in font cmbx12!
+Missing character: There is no Ã in font cmbx12!
+Missing character: There is no £ in font cmbx12!
+Missing character: There is no Ã in font cmbx12!
+Missing character: There is no © in font cmbx12!
+Missing character: There is no Ã in font cmbx12!
+Missing character: There is no § in font cmbx12!
+Missing character: There is no Ã in font cmbx12!
+Missing character: There is no £ in font cmbx12!
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 14.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 14.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 14.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¡ in font cmr10!
+Missing character: There is no Ã in font cmr9!
+Missing character: There is no § in font cmr9!
+Missing character: There is no Ã in font cmr9!
+Missing character: There is no £ in font cmr9!
+Missing character: There is no Ã in font cmr9!
+Missing character: There is no § in font cmr9!
+Missing character: There is no Ã in font cmr9!
+Missing character: There is no £ in font cmr9!
+Missing character: There is no Ã in font cmr9!
+Missing character: There is no ª in font cmr9!
+Missing character: There is no Ã in font cmr9!
+Missing character: There is no © in font cmr9!
+Missing character: There is no Ã in font cmr9!
+Missing character: There is no § in font cmr9!
+Missing character: There is no Ã in font cmr9!
+Missing character: There is no £ in font cmr9!
+Missing character: There is no Ã in font cmbx12!
+Missing character: There is no § in font cmbx12!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no § in font cmr10!
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 53.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 53.
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./Trabalho_IA.aux) ) 
+Here is how much of TeX's memory you used:
+ 473 strings out of 495039
+ 4979 string characters out of 3181250
+ 53175 words of memory out of 3000000
+ 3708 multiletter control sequences out of 15000+200000
+ 16104 words of font info for 59 fonts, out of 3000000 for 9000
+ 16 hyphenation exceptions out of 8191
+ 19i,5n,22p,179b,184s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmss9.pfb>
+Output written on Trabalho_IA.pdf (1 page, 86880 bytes).
+PDF statistics:
+ 40 PDF objects out of 1000 (max. 8388607)
+ 28 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
