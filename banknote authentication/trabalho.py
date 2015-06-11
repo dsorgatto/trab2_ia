@@ -11,21 +11,15 @@ from sklearn.metrics import accuracy_score  # Para calcualr a acuracia
 from sklearn import cross_validation  # Para usar o kfold
 
 ##################################
-# # Mammographic Masses
+# # Bank
 ##################################
 # Abrindo dados com panda
-mammo_masses = pd.read_csv('mammographic_masses.data', header=None)
+bank = pd.read_csv('data_banknote_authentication.txt', header=None)
 
-for col in mammo_masses.columns:
-    if mammo_masses[col].dtype != 'int64':
-        print "Removendo possivel '?' na coluna %s..." % col
-        mammo_masses = mammo_masses[mammo_masses[col] != '?']
-
-valores = mammo_masses.iloc[:, 0:5]
-valores = pd.DataFrame(np.asarray(valores, dtype=np.float))
+valores = bank.iloc[:, 0:4]
 #normalizando os valores
 valores = (valores - valores.mean()) / (valores.std())
-classes = mammo_masses.iloc[:, 5]
+classes = bank.iloc[:, 4]
 
 # usando k-fold
 kf = cross_validation.KFold(len(classes), n_folds=10)
@@ -65,7 +59,7 @@ plt.plot(ks, knn_acu_test_media, c="red")
 plt.scatter(ks, knn_acu_train_media, c="blue")
 plt.plot(ks, knn_acu_train_media, c="blue")
 plt.legend( ['Teste', 'Treino'])
-plt.title('Mammographic Masses')
+plt.title('Bank')
 plt.ylabel('Acuracia')
 plt.xlabel('Numero de vizinhos mais proximos')
 plt.savefig('knn.png')
@@ -113,7 +107,7 @@ plt.ylim(0, 1.04)
 plt.xticks([1.4, 2.4, 3.4], ["Knn", "Naive Bayes", "Decision Tree"])
 plt.ylabel('Probabilidade')
 plt.xlabel('Algoritimos')
-plt.title('Mammographic masses')
+plt.title('Bank')
 plt.savefig('acuracias.png')
 
 tabela=map(list, zip(*tabela))

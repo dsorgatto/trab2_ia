@@ -11,15 +11,15 @@ from sklearn.metrics import accuracy_score  # Para calcualr a acuracia
 from sklearn import cross_validation  # Para usar o kfold
 
 ##################################
-# # Seeds
+# # Iris
 ##################################
 # Abrindo dados com panda
-seeds = pd.read_csv('seeds_dataset.txt', header=None,sep=';')
+diabetes = pd.read_csv('pima-indians-diabetes.data', header=None)
 
-valores = seeds.iloc[:, 0:6]
+valores = diabetes.iloc[:, 0:8]
 #normalizando os valores
 valores = (valores - valores.mean()) / (valores.std())
-classes = seeds.iloc[:, 6]
+classes = diabetes.iloc[:, 8]
 
 # usando k-fold
 kf = cross_validation.KFold(len(classes), n_folds=10)
@@ -59,7 +59,7 @@ plt.plot(ks, knn_acu_test_media, c="red")
 plt.scatter(ks, knn_acu_train_media, c="blue")
 plt.plot(ks, knn_acu_train_media, c="blue")
 plt.legend( ['Teste', 'Treino'])
-plt.title('Seeds')
+plt.title('Diabetes')
 plt.ylabel('Acuracia')
 plt.xlabel('Numero de vizinhos mais proximos')
 plt.savefig('knn.png')
@@ -107,7 +107,7 @@ plt.ylim(0, 1.04)
 plt.xticks([1.4, 2.4, 3.4], ["Knn", "Naive Bayes", "Decision Tree"])
 plt.ylabel('Probabilidade')
 plt.xlabel('Algoritimos')
-plt.title('Seeds')
+plt.title('Diabetes')
 plt.savefig('acuracias.png')
 
 tabela=map(list, zip(*tabela))

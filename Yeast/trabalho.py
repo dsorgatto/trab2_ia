@@ -11,24 +11,15 @@ from sklearn.metrics import accuracy_score  # Para calcualr a acuracia
 from sklearn import cross_validation  # Para usar o kfold
 
 ##################################
-# # Cancer nos Seios
+# # Iris
 ##################################
 # Abrindo dados com panda
-bcw = pd.read_csv('breast-cancer-wisconsin.data', header=None)
+yeast = pd.read_csv('yeast.data', header=None,sep=',')
 
-for col in bcw.columns:
-    if bcw[col].dtype != 'int64':
-        print "Removendo possivel '?' na coluna %s..." % col
-        bcw = bcw[bcw[col] != '?']
-
-print bcw.iloc[1:10,1]
-        
-valores = bcw.iloc[:,1:10]
 #normalizando os valores
-print  valores.iloc[:,5].mean()
-classes = bcw.iloc[:, 10]
+valores = (valores - valores.mean()) / (valores.std())
+classes = yeast.iloc[:, 9]
 
-'''
 # usando k-fold
 kf = cross_validation.KFold(len(classes), n_folds=10)
 acuracias_media = []
@@ -67,7 +58,7 @@ plt.plot(ks, knn_acu_test_media, c="red")
 plt.scatter(ks, knn_acu_train_media, c="blue")
 plt.plot(ks, knn_acu_train_media, c="blue")
 plt.legend( ['Teste', 'Treino'])
-plt.title('Bcw')
+plt.title('Yeast')
 plt.ylabel('Acuracia')
 plt.xlabel('Numero de vizinhos mais proximos')
 plt.savefig('knn.png')
@@ -115,7 +106,7 @@ plt.ylim(0, 1.04)
 plt.xticks([1.4, 2.4, 3.4], ["Knn", "Naive Bayes", "Decision Tree"])
 plt.ylabel('Probabilidade')
 plt.xlabel('Algoritimos')
-plt.title('Bcw')
+plt.title('Yeast')
 plt.savefig('acuracias.png')
 
 tabela=map(list, zip(*tabela))
@@ -123,5 +114,5 @@ tabela=map(list, zip(*tabela))
 df = pd.DataFrame(tabela, columns=["Knn","Naive Bayes","Decision tree"])
 df.to_csv('tabela.csv', header=True, sep=',')
 
-'''
+
 print "Fim l"

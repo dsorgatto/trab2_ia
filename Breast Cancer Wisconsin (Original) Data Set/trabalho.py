@@ -21,14 +21,14 @@ for col in bcw.columns:
         print "Removendo possivel '?' na coluna %s..." % col
         bcw = bcw[bcw[col] != '?']
 
-print bcw.iloc[1:10,1:11]
-        
 valores = bcw.iloc[:,1:10]
+#trocando tipo para float por causa da média que dava erro de precisão
+valores = pd.DataFrame(np.asarray(valores, dtype=np.float))
 #normalizando os valores
 valores = (valores - valores.mean()) / (valores.std())
+classes = bcw.iloc[:, 10]
 
 
-'''
 # usando k-fold
 kf = cross_validation.KFold(len(classes), n_folds=10)
 acuracias_media = []
@@ -123,5 +123,4 @@ tabela=map(list, zip(*tabela))
 df = pd.DataFrame(tabela, columns=["Knn","Naive Bayes","Decision tree"])
 df.to_csv('tabela.csv', header=True, sep=',')
 
-'''
 print "Fim l"
