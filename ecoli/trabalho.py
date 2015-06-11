@@ -14,12 +14,12 @@ from sklearn import cross_validation  # Para usar o kfold
 # # Iris
 ##################################
 # Abrindo dados com panda
-iris = pd.read_csv('iris.data', header=None)
+ecoli = pd.read_csv('ecoli.data', header=None,sep=";")
 
-valores = iris.iloc[:, 0:4]
+valores = ecoli.iloc[:, 1:8]
 #normalizando os valores
 valores = (valores - valores.mean()) / (valores.std())
-classes = iris.iloc[:, 4]
+classes = ecoli.iloc[:, 8]
 
 # usando k-fold
 kf = cross_validation.KFold(len(classes), n_folds=10)
@@ -59,7 +59,7 @@ plt.plot(ks, knn_acu_test_media, c="red")
 plt.scatter(ks, knn_acu_train_media, c="blue")
 plt.plot(ks, knn_acu_train_media, c="blue")
 plt.legend( ['Teste', 'Treino'])
-plt.title('Iris')
+plt.title('Ecoli')
 plt.ylabel('Acuracia')
 plt.xlabel('Numero de vizinhos mais proximos')
 plt.savefig('knn.png')
@@ -107,7 +107,7 @@ plt.ylim(0, 1.04)
 plt.xticks([1.4, 2.4, 3.4], ["Knn", "Naive Bayes", "Decision Tree"])
 plt.ylabel('Probabilidade')
 plt.xlabel('Algoritimos')
-plt.title('Iris')
+plt.title('Ecoli')
 plt.savefig('acuracias.png')
 
 tabela=map(list, zip(*tabela))
