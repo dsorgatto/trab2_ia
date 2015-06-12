@@ -11,9 +11,68 @@
 @article{Fisher1936,
 	author = "Fisher, R. A.",
 	journal = "Annual Eugenics",
-	pages = "179-188",
+	pages = "179--188",
 	title = "{The use of multiple measurements in taxonomic problems}",
 	volume = "7",
 	year = "1936"
+}
+
+@inproceedings{mckinney-proc-scipy-2010,
+	author = "McKinney, Wes",
+	booktitle = "{Proceedings of the 9th Python in Science Conference}",
+	editor = "van der Walt, St{\'e}fan and Millman, Jarrod",
+	pages = "51--56",
+	title = "{Data Structures for Statistical Computing in Python}",
+	year = "2010"
+}
+
+@article{scikit-learn,
+	title = "{Scikit-learn: Machine Learning in {P}ython}"
+}
+
+@article{horton_kenta1996,
+	author = "Horton, Paul and Nakai, Kenta",
+	journal = "Intelligent systems for molecular biology",
+	pages = "109--115",
+	title = "{A Probabilistic Classification Localization System for Predicting Sites of Proteins}",
+	volume = "96",
+	year = "1996"
+}
+
+@article{nakai_kaneshisa1991,
+	author = "Nakai, Kenta and Kanehisa, Minoru",
+	journal = "PROTEINS: Structure, Function, and Genetics",
+	pages = "95--110",
+	title = "{Expert System for Predicting Protein Localization Sites in Gram-Negative Bacteria}",
+	volume = "11",
+	year = "1991"
+}
+
+@article{ghazvini_etal2014,
+	author = "Ghazvini, Anahita and Awwalu, Jamilu and Bakar, Azuraliza Abu",
+	journal = "International Journal of Computer Trends and Technology",
+	number = "1",
+	pages = "39--43",
+	title = "{Comparative Analysis of Algorithms in Supervised Classification: A Case study of Bank Notes Dataset}",
+	volume = "17",
+	year = "2014"
+}
+
+@article{berzal_etal2003,
+	author = "Berzal, Fernando and Cubero, Juan-Carlos and Cuenca, Fernando and Mart{\'i}n-Bautista, Maria J.",
+	journal = "Data \& Knowledge Engineering",
+	pages = "31--48",
+	title = "{On the quest for easy-to-understand splitting rules}",
+	volume = "44",
+	year = "2003"
+}
+
+@article{van_etal2011,
+	author = "van der Walt, St{\'e}fan and Colbert, S. Chris and Varoquaux, Ga{\"e}l",
+	journal = "Computing in Science \& Engineering",
+	pages = "22-30",
+	title = "{The NumPy Array: A Structure for Efficient Numerical Computation}",
+	volume = "13",
+	year = "2011"
 }
 
