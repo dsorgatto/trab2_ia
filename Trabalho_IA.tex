@@ -76,18 +76,18 @@ O algoritmo KNN, K-Nearest Neighbors, ou Vizinhos mais Próximos, é considerado
 
 O algoritmo trabalha com uma função que calcula a distância da nova instância para as instâncias da base de dados que possui, retornando a classificação pela ``proximidade'' com essas informações. Uma informação importante para o bom funcionamento do algoritmo é definir o ``K'' que será usado para comparar as novas instâncias.
 
-Esse ``K'' é o número de vizinhos que serão considerados para rotular a nova instância é muito importante, pois um ``K'' pequeno pode sofrer forte influência de  ruídos ou dados falsos (\textit{outliers}), um ``K'' tem um custo computacional alto e não necessariamente retornar um resultado com melhor acurácia.
+Esse ``K'' é o número de vizinhos que serão considerados para rotular a nova instância é muito importante, pois um ``K'' pequeno pode sofrer forte influência de  ruídos ou dados falsos (\textit{outliers}), um ``K'' grande tem um custo computacional alto e não necessariamente retornar um resultado com melhor acurácia.
 
 Neste trabalho avaliamos apenas 5 possíveis valores para ``K'' e escolhemos aquele que teve o melhor resultado de acurácia para os conjuntos de teste. Os valores que escolhemos foram: 3, 5, 7, 9 e 11. Não se adota escolher ``K'' como número par para evitar a possibilidade de empates.
 
 \subsubsection{Arvore de Decisão}
-É um algoritmo que usa diagramas para mapear as varias alternativas e resultados de decisões, baseados nas probabilidades de ocorrerem. Baseia-se em estimativas e probabilidades associadas aos resultados de cursos de ação que competem entre si. O resultado de cada curso de ação é ponderado pela probabilidade associada a ele. O resultado ponderado é somado e o valor esperado de cada curso de ação é, então determinado. A alternativa que proporciona o valor esperado mais alto é preferível.
+É um algoritmo que usa diagramas para mapear as várias alternativas e resultados de decisões, baseados nas probabilidades de ocorrerem. Baseia-se em estimativas e probabilidades associadas aos resultados de cursos de ação que competem entre si. O resultado de cada curso de ação é ponderado pela probabilidade associada a ele. O resultado ponderado é somado e o valor esperado de cada curso de ação é, então determinado. A alternativa que proporciona o valor esperado mais alto é preferível.
 
 Essencialmente, árvores de decisões são diagramas que permitem representar e avaliar problemas que envolvem decisões sequenciais, colocando em destaque os resultados identificados nos diversos cursos de ação. É um algoritmo cuja interpretabilidade é fácil para os humanos, ou seja, é possível entender o que foi feito pelo programa para se chegar aquela classificação.
 
-As árvores de decisão podem se tornar enormes e possuem custo computacional alto para se atingir todas as possibilidades. É comum realizar ``podas'' na árvore para diminuir seu tamanho e melhorar o desempenho, evitando o ``\textit{overfitting}''\footnote{Situação na qual o algoritmo superajusta sua função de classificação ao conjunto de treino e acaba tendo sua acurácia diminuída nas aplicações dos conjuntos de testes ou na vida real}.
+As árvores de decisão podem se tornar enormes e possuem custo computacional alto para se atingir todas as possibilidades. É comum realizar ``podas'' na árvore para diminuir seu tamanho e melhorar o desempenho, evitando o ``\textit{overfitting}''\footnote{Situação na qual o algoritmo superajusta sua função de classificação ao conjunto de treino e acaba tendo sua acurácia diminuída nas aplicações dos conjuntos de testes ou na vida real.}.
 
-O custo computacional é compensado pela grande velocidade de processamento das novas instâncias, pois estas serão classificadas respeitando as regras construídas com base no treino. Essas regras são uma série de ``IF--ELSE'' que conduzem a uma classificação da instância apresentada.
+O custo computacional é compensado pela grande velocidade de processamento das novas instâncias, pois estas serão classificadas respeitando as regras construídas com base no treino. Essas regras são uma série de cláusulas condicionais, ``IF--ELSE'', que conduzem a uma classificação da instância apresentada.
 
 Neste trabalho deixamos o algoritmo criar a árvore completa e não realizamos nenhuma ``poda'' o que gerou algumas árvores de decisão tão grandes que não puderam ser colocadas na análise dos dados.
 
@@ -111,9 +111,9 @@ Terminada a execução dos algoritmos solicitados pelo professor e de posse das 
 
 \begin{figure}[!ht]
 \centering
-	\label{foracur}
 	\[\frac{TP+TN}{P+N}\]
     \caption{Fórmula da acurácia}
+    \label{foracur}
 \end{figure}
 
 Onde, \textit{TP} e \textit{TN} são os valores de classificação que foram corretamente atribuídos e \textit{P} e \textit{N} formam o total de classes do dataset.
@@ -168,7 +168,7 @@ Atributos & 8 \\
 
 \subsubsection{Fertility}
 
-Esse conjunto de dados apresenta amostras de sêmen de 100 voluntários que devem ser classificadas como normal ou alterada, como proposto pelo "World Health Organization reference values for human semen characteristics" (WHO 2010). Essas alterações estão associadas a dados socio-demográficos, fatores ambientais, saúde e hábitos cotidianos, sendo essas características usadas para classificar o resultado do exame.	
+Esse conjunto de dados apresenta amostras de sêmen de 100 voluntários que devem ser classificadas como normal ou alterada, como proposto pelo "World Health Organization reference values for human semen characteristics" (WHO 2010). Essas alterações estão associadas a dados sócio-demográficos, fatores ambientais, saúde e hábitos cotidianos, sendo essas características usadas para classificar o resultado do exame.	
 
 O dataset Fertility pode ser obtido no endereço \url{https://archive.ics.uci.edu/ml/conjunto de dados/Fertility} e suas informações básicas são:
 \begin{table}[!ht]
@@ -234,7 +234,7 @@ Atributos & 13\\
 
 \subsubsection{Habermans Survival}
 
-Esse conjunto de dados é o resultado do acompanhamento de pacientes que fizeram cirgurdia de cancer de mama. Temos que classificar pacientes que sobreviveram mais que 5 anos, depois da circurgia ou pacientes que faleceram em menos de 5 anos apos a cirurgia. S. J. Haberman, foi o médico que coletou esses dados, que contem como atributos características dos pacientes como idade, ano da operação e número de nodos detectados.
+Esse conjunto de dados é o resultado do acompanhamento de pacientes que fizeram cirgurgia de cancer de mama. Temos que classificar pacientes que sobreviveram mais que 5 anos, depois da circurgia ou pacientes que faleceram em menos de 5 anos após a cirurgia. S. J. Haberman, foi o médico que coletou esses dados, que contém como atributos características dos pacientes como idade, ano da operação e número de nodos detectados.
 
 O dataset Haberman's Survival pode ser obtido no endereço \url{https://archive.ics.uci.edu/ml/conjunto de dados/Haberman's+Survival} e suas informações básicas são:
 \begin{table}[!ht]
@@ -256,7 +256,7 @@ Atributos & 3\\
 
 \subsubsection{Banknote Authentication}
 
-Esses dados são referentes a fraudes com cheques, vários cheques legítimos e falsificados são avaliados quanto a varias características derivadas das imagens deles e temos que conseguir detectar as fraudes a partir dessas características.
+Esses dados são referentes a fraudes com cheques, vários cheques legítimos e falsificados são avaliados quanto a várias características derivadas das imagens deles e temos que conseguir detectar as fraudes a partir dessas características.
 
 O dataset Banknote Authentication pode ser obtido no endereço \url{https://archive.ics.uci.edu/ml/conjunto de dados/banknote+authentication} e suas informações básicas são:
 \begin{table}[!ht]
@@ -278,7 +278,7 @@ Atributos & 5\\
 
 \subsubsection{Breast Cancer Wisconsin}
 
-Esse conjunto de dados tem por objetivo classificar tumores de mama como malignos ou benignos. Os dados foram coletados nos hospital universitário de Wisconsin ao longo do tempo e os atributos são formados de varias características estruturais dos tumores uniformidade das células, adesão, etc.
+Esse conjunto de dados tem por objetivo classificar tumores de mama como malignos ou benignos. Os dados foram coletados nos hospital universitário de Wisconsin ao longo do tempo e os atributos são formados de várias características estruturais dos tumores uniformidade das células, adesão, etc.
 
 O dataset Breast Cancer Wisconsin pode ser obtido no endereço \url{https://archive.ics.uci.edu/ml/conjunto de dados/Breast+Cancer+Wisconsin+(Original)} e suas informações básicas são:
 \begin{table}[!ht]
@@ -322,7 +322,7 @@ Atributos & 6\\
 
 \subsubsection{Pima Indians Diabetes}
 
-Esse conjunto de dados consiste em classificar os pacientes com e sem diabetes melitus a partir de atributos como numero de vezes em que esteve gravida, concentração de glucose para um teste de tolerância a glucose, idade, índice de massa corpórea, etc.
+Esse conjunto de dados consiste em classificar os pacientes com e sem \textit{diabetes melitus} a partir de atributos como número de vezes em que esteve grávida, concentração de glicose para um teste de tolerância a glicose, idade, índice de massa corpórea, etc.
 Nesse caso, temos os casos selecionados para pacientes mulheres acima de 21 anos.
 
 O dataset Pima Indians Diabetes pode ser obtido no endereço \url{https://archive.ics.uci.edu/ml/datasets/Pima+Indians+Diabetes} e suas informações básicas são:
@@ -426,6 +426,7 @@ Nossa avaliação sugere que não é simples determinar o melhor algorítimo ind
 \begin{figure}[!htb]
   \caption{Comparação das acurácias para os três métodos de classificação}
   \label{acuraciasfig}
+  \centering
     \includegraphics[width=0.35\textwidth]{Iris/acuracias.png}
     \includegraphics[width=0.35\textwidth]{banknote_authentication/acuracias.png}
     \includegraphics[width=0.35\textwidth]{Planning_Relax/acuracias.png}
