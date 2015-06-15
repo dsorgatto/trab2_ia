@@ -13,6 +13,12 @@
 %Mudar orientação da página
 \usepackage{lscape}
 
+%Alterando a margem
+\usepackage[margin=1in]{geometry}
+
+%Não permitir frases estourarem a margem, principalmente urls
+\sloppy
+
 %Bibliografias
 \usepackage{natbib}
 \bibliographystyle{plain}
@@ -26,9 +32,9 @@
 \maketitle
 
 \begin{abstract}
-Avaliamos o desempenho de três algoritmos de classificação: o KNN (K-nearest neighbors), a árvore de decisão e o Naive Bayes para 10 conjunto de dados públicos. Foi feita a normalização dos dados. a separação em 10-folds para validação cruzada estratificada e, por fim, foi realizado o cálculo da acurácia e do desvio padrão das informações encontradas. Os resultados comprovam que o melhor algoritmo de classificação para os conjunto de dados que utilizamos foi o KNN e que classificar dados é uma tarefa importante para a compreensão da realidade e dos muitos dados produzidos.
+Avaliamos o desempenho de três algoritmos de classificação: o KNN (K-nearest neighbors), a árvore de decisão (Decision tree) e o Naive Bayes para 10 conjunto de dados públicos. Para todos os conjuntos de dados, foi feita a normalização dos dados, a separação em 10-folds para validação cruzada estratificada e, por fim, foi realizado o cálculo da acurácia para cada uma das 10 partições usadas. Nossos resultados sugerem que o melhor algoritmo de classificação para os conjuntos de dados que selecionados foi o KNN, porém este não teve o melhor desempenho para todos os conjuntos de dados, sugerindo a necessidade de sempre avaliar a eficiências dos algorítimos de classificação.
 
-\textbf{Palavras-chave:} Algoritmos de classificação, acurácia, desempenho, inteligência artificial.
+\textbf{Palavras-chave:} Algoritmos de classificação, acurácia, desempenho, inteligência artificial, aprendizado de máquina.
 \end{abstract}
 %
 \section{Introdução}
@@ -40,7 +46,7 @@ A descrição e avaliação dos algoritmos são partes do relatório que segue.
 
 
 \subsection{Problema}
-O problema que trata esse relatório é a comparação dos resultados para o uso dos algoritmos de classificação ensinados pelo professor da disciplina de Inteligência Artificial. Devemos aplicar os algoritmos a partir das bibliotecas disponíveis na linguagem Python, sendo a principal a SKLearn, e avaliar os desempenhos a partir da acurácia demonstradas nos mesmos conjunto de dados.
+O problema que trata esse relatório é a comparação dos resultados para o uso dos algoritmos de classificação ensinados pelo professor da disciplina de Inteligência Artificial. Devemos aplicar os algoritmos a partir das bibliotecas disponíveis na linguagem Python, sendo a principal a SKLearn \cite{scikit-learn}, e avaliar os desempenhos a partir da acurácia demonstradas nos mesmos conjunto de dados.
 
 \subsection{Objetivos}
 Aplicar os algoritmos KNN, Decision Tree e Naive Bayes para 10 (dez) conjunto de dados distintos.
@@ -51,7 +57,7 @@ Comprovar os resultados através de gráficos, tabelas e informações complemen
 
 
 \section{Material e Métodos}
-O trabalho consiste em escolher 10 conjunto de dados públicos no site UCI - Machine Learning\footnote{Disponível no site \url{http://archive.ics.uci.edu/ml/index.html}} que fossem próprios para o problema de classificação de dados. Neste site há 234 conjunto de dados disponíveis para classificação. Os critérios que utilizamos para a escolha dos que usamos neste trabalho foram:
+O trabalho consiste em escolher 10 conjunto de dados públicos no site UCI - Machine Learning\footnote{Disponível no site \url{http://archive.ics.uci.edu/ml/index.html}} que fossem próprios para o problema de classificação de dados. Neste site há 234 conjuntos de dados disponíveis para classificação. Os critérios que utilizamos para a escolha dos que usamos neste trabalho foram:
 	\begin{itemize}
     \item Atributos reais ou inteiros;
     \item Baixo número de atributos para classificação;
@@ -140,6 +146,8 @@ Atributos & 4 \\
 \end{table}
 
 \subsubsection{Ecoli}
+Esse  conjunto de dados contém como resposta a localização de proteínas em células de \emph{Echoricha coli}, devemos prever essa localização a partir de uma serie de sinas nas sequências como McGeoch's method for signal sequence recognition e von Heijne's method for signal sequence recognition, entre outros.
+
 O dataset Ecoli pode ser obtido no endereço \url{https://archive.ics.uci.edu/ml/conjunto de dados/Ecoli} e suas informações básicas são:
 \begin{table}[!ht]
 \centering
@@ -159,6 +167,9 @@ Atributos & 8 \\
 \end{table}
 
 \subsubsection{Fertility}
+
+Esse conjunto de dados apresenta amostras de sêmen de 100 voluntários que devem ser classificadas como normal ou alterada, como proposto pelo "World Health Organization reference values for human semen characteristics" (WHO 2010). Essas alterações estão associadas a dados socio-demográficos, fatores ambientais, saúde e hábitos cotidianos, sendo essas características usadas para classificar o resultado do exame.	
+
 O dataset Fertility pode ser obtido no endereço \url{https://archive.ics.uci.edu/ml/conjunto de dados/Fertility} e suas informações básicas são:
 \begin{table}[!ht]
 \centering
@@ -178,6 +189,9 @@ Atributos & 10 \\
 \end{table}
 
 \subsubsection{Yeast}
+
+Esse conjunto de dados é similar ao ecoli, mas agora ao invés de células de \emph{Echoricha coli}, temos dados para levedura. Os atributos são os mesmos.
+
 O dataset Yeast pode ser obtido no endereço \url{https://archive.ics.uci.edu/ml/conjunto de dados/Yeast} e suas informações básicas são:
 \begin{table}[!ht]
 \centering
@@ -197,6 +211,9 @@ Atributos & 8\\
 \end{table}
 
 \subsubsection{Planning Relax}
+
+Esse conjunto de dados requer que classifiquemos pessoas com dois tipos de atividade mental, planejando e relaxadas. Devemos classificar esses estados a partir de leituras de eletroencefalografia (EEG), que são os atributos disponíveis para a classificação.
+
 O dataset Planning Relax pode ser obtido no endereço \url{https://archive.ics.uci.edu/ml/conjunto de dados/Planning+Relax} e suas informações básicas são:
 \begin{table}[!ht]
 \centering
@@ -216,6 +233,9 @@ Atributos & 13\\
 \end{table}
 
 \subsubsection{Habermans Survival}
+
+Esse conjunto de dados é o resultado do acompanhamento de pacientes que fizeram cirgurdia de cancer de mama. Temos que classificar pacientes que sobreviveram mais que 5 anos, depois da circurgia ou pacientes que faleceram em menos de 5 anos apos a cirurgia. S. J. Haberman, foi o médico que coletou esses dados, que contem como atributos características dos pacientes como idade, ano da operação e número de nodos detectados.
+
 O dataset Haberman's Survival pode ser obtido no endereço \url{https://archive.ics.uci.edu/ml/conjunto de dados/Haberman's+Survival} e suas informações básicas são:
 \begin{table}[!ht]
 \centering
@@ -235,6 +255,9 @@ Atributos & 3\\
 \end{table}
 
 \subsubsection{Banknote Authentication}
+
+Esses dados são referentes a fraudes com cheques, vários cheques legítimos e falsificados são avaliados quanto a varias características derivadas das imagens deles e temos que conseguir detectar as fraudes a partir dessas características.
+
 O dataset Banknote Authentication pode ser obtido no endereço \url{https://archive.ics.uci.edu/ml/conjunto de dados/banknote+authentication} e suas informações básicas são:
 \begin{table}[!ht]
 \centering
@@ -254,6 +277,9 @@ Atributos & 5\\
 \end{table}
 
 \subsubsection{Breast Cancer Wisconsin}
+
+Esse conjunto de dados tem por objetivo classificar tumores de mama como malignos ou benignos. Os dados foram coletados nos hospital universitário de Wisconsin ao longo do tempo e os atributos são formados de varias características estruturais dos tumores uniformidade das células, adesão, etc.
+
 O dataset Breast Cancer Wisconsin pode ser obtido no endereço \url{https://archive.ics.uci.edu/ml/conjunto de dados/Breast+Cancer+Wisconsin+(Original)} e suas informações básicas são:
 \begin{table}[!ht]
 \centering
@@ -273,6 +299,9 @@ Atributos & 10\\
 \end{table}
 
 \subsubsection{Mammographic Mass}
+
+Esse conjunto de dados também requer a classificação de tumores em benignos e malignos para o câncer de mama. Nesse caso baseado em resultados de mamografia e a idade da paciente.
+
 O dataset Mammographic Mass pode ser obtido no endereço \url{https://archive.ics.uci.edu/ml/conjunto de dados/Mammographic+Mass} e suas informações básicas são:
 \begin{table}[!ht]
 \centering
@@ -292,6 +321,10 @@ Atributos & 6\\
 \end{table}
 
 \subsubsection{Pima Indians Diabetes}
+
+Esse conjunto de dados consiste em classificar os pacientes com e sem diabetes melitus a partir de atributos como numero de vezes em que esteve gravida, concentração de glucose para um teste de tolerância a glucose, idade, índice de massa corpórea, etc.
+Nesse caso, temos os casos selecionados para pacientes mulheres acima de 21 anos.
+
 O dataset Pima Indians Diabetes pode ser obtido no endereço \url{https://archive.ics.uci.edu/ml/datasets/Pima+Indians+Diabetes} e suas informações básicas são:
 \begin{table}[!ht]
 \centering
@@ -383,6 +416,8 @@ Para o conjunto de dados Yeast, a baixa acurácia em relação aos outros conjun
 
 Observamos também na figura \ref{acuraciasfig} que apesar do Naive Bayes se sair bem na maioria dos casos, nos três casos onde ele obteve menor acurácia, banknote authentication, fertility e yeast, dois deles tratam de atributos em sua maioria contínuos, enquanto fertility tem somente classes hierárquicas que já são fornecidas como valores reais. No caso do "Bankbote Authentication", trata-se de atributos de imagens, parâmetros das imagens registradas de cheques legítimos e falsificados, assim imperfeições como quando se apaga palavras de um cheque original podem ser detectados. Ghazvini e colaboradores \citep{ghazvini_etal2014} também observaram uma performance inferior do Naive Bayes em relação ao algoritimo de Máquina de vetores de suporte e Redes neurais artificiais, estes autores reportam que seus melhores resultados foram obtidos com rede neural do tipo Multilayer Perceptron.
 
+Temos também que o número de vizinhos mais próximos, utilizado pelo algoritmo Knn é extremamente variável, sendo que para alguns conjuntos, vemos que muitos vizinhos produziam melhores resultados, enquanto outros, poucos vizinhos produziam os melhores resultados, como podemos ver na figura \ref{kknn}.
+
 Apesar da Árvore de decisão ter o pior resultado para 7 dos 10 conjuntos de dados avaliados aqui, seu resultado nunca é tão discrepante dos outros algorítimos, como quando o Naive bayes teve sua acurácia 5 vezes menor que o melhor resultado para o dados Yeast. Um ponto positivo da Árvore de decisão é a facilidade com que o seu resultado pode ser interpretado, mesmo por pessoas leigas quanto ao funcionamento do algorítimo. Ao produzir as Árvores de decisão, como apresentado na figura \ref{arvdecisao}, esse resultado pode ser facilmente interpretado e utilizado por outras pessoas \citep{berzal_etal2003}
 
 Nossa avaliação sugere que não é simples determinar o melhor algorítimo independente do conjunto de dados. Mesmo o Naive Bayes, que teve a melhor performance geral, teve uma performance insatisfatória para alguns problemas, como por exemplo no caso de Yeast em que ele foi o pior, muito abaixo da média dos outros dois algorítimos e no caso dos Cheques falsificados, onde uma performance superior, como a obtida pelo Knn pode significar uma grande economia para os bancos. Além disso, para problemas como do Iris, onde estamos tentando classificar espécies vegetais a partir de medidas de flores, usuários finais podem ficar mais satisfeitos com uma Árvore de decisão impressa em um guia de identificação de plantas do que ter a necessidade de usar um computador para conseguir se utilizar de um modelo de classificação criado.
@@ -406,6 +441,7 @@ Nossa avaliação sugere que não é simples determinar o melhor algorítimo ind
 
 \begin{landscape}
 \begin{figure}[!htb]
+\label{kknn}
   \caption{Escolha do número de vizinhos mais próximos}
   \centering
     \includegraphics[width=0.35\textwidth]{Iris/knn.png}
