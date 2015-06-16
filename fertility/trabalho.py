@@ -67,6 +67,7 @@ plt.savefig('knn.png')
 acuracias_media.append(max(knn_acu_test_media))
 acuracias_std.append(max(knn_acu_test_std))
 k_usado = ks[knn_acu_test_media.index(max(knn_acu_test_media))]
+print "K utilizado: ",k_usado
 
 # classificador naive bayes
 teste = []

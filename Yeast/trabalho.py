@@ -11,12 +11,13 @@ from sklearn.metrics import accuracy_score  # Para calcualr a acuracia
 from sklearn import cross_validation  # Para usar o kfold
 
 ##################################
-# # Iris
+# # Yeast
 ##################################
 # Abrindo dados com panda
 yeast = pd.read_csv('yeast.data', header=None,sep=',')
 
 #normalizando os valores
+valores = yeast.iloc[:, 1:9]
 valores = (valores - valores.mean()) / (valores.std())
 classes = yeast.iloc[:, 9]
 
@@ -66,6 +67,7 @@ plt.savefig('knn.png')
 acuracias_media.append(max(knn_acu_test_media))
 acuracias_std.append(max(knn_acu_test_std))
 k_usado = ks[knn_acu_test_media.index(max(knn_acu_test_media))]
+print "K utilizado: ",k_usado
 
 # classificador naive bayes
 teste = []

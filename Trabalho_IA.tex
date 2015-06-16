@@ -416,7 +416,31 @@ Para o conjunto de dados Yeast, a baixa acurácia em relação aos outros conjun
 
 Observamos também na figura \ref{acuraciasfig} que apesar do Naive Bayes se sair bem na maioria dos casos, nos três casos onde ele obteve menor acurácia, banknote authentication, fertility e yeast, dois deles tratam de atributos em sua maioria contínuos, enquanto fertility tem somente classes hierárquicas que já são fornecidas como valores reais. No caso do "Bankbote Authentication", trata-se de atributos de imagens, parâmetros das imagens registradas de cheques legítimos e falsificados, assim imperfeições como quando se apaga palavras de um cheque original podem ser detectados. Ghazvini e colaboradores \citep{ghazvini_etal2014} também observaram uma performance inferior do Naive Bayes em relação ao algoritimo de Máquina de vetores de suporte e Redes neurais artificiais, estes autores reportam que seus melhores resultados foram obtidos com rede neural do tipo Multilayer Perceptron.
 
-Temos também que o número de vizinhos mais próximos, utilizado pelo algoritmo Knn é extremamente variável, sendo que para alguns conjuntos, vemos que muitos vizinhos produziam melhores resultados, enquanto outros, poucos vizinhos produziam os melhores resultados, como podemos ver na figura \ref{kknn}.
+Temos também que o número de vizinhos mais próximos utilizado pelo algoritmo Knn, como observado na tabela \ref{vizinhos} é extremamente variável, sendo que para alguns conjuntos, vemos que muitos vizinhos produziam melhores resultados, enquanto outros, poucos vizinhos produziam os melhores resultados. A escolha de 11 vizinhos foi a mais comum, ocorrida para quatro conjunto de dados, mas para o conjunto de dados sobre fraudes de cheques, apenas três vizinhos deram o melhor resultado, sendo onde obtivemos a maior acurácia. Além disso, como podemos ver na figura \ref{kknn}, para conjuntos de dados como o Iris, podemos supor, que pelos resultados obtidos, que 7 é um resultado ótimo, já que ao aumentar ou diminuir o número de vizinhos para a votação da classe diminuiu a acurácia da validação cruzada, enquanto para o conjunto de dados de câncer de mama de Wisconsin (BCW), vemos que enquanto aumentávamos o número de vizinhos, ainda estávamos melhorando a acurácia, o que pode sugerir que a avaliação de valores ainda maiores do que os testados aqui podem resultar em uma maior acurácia do algoritmo, mas para manter a comparabilidade dos resultados, escolhemos a priori um conjunto de valores de vizinho mais próximos utilizados para todos os conjuntos de dados.
+
+\begin{table}[!ht]
+\centering
+\caption{Número de vizinhos utilizado para o calculo de acurácia do algoritmo Knn}
+\label{vizinhos}
+\begin{tabular}{|l|l|}
+\hline
+Conjunto de dados & Número de vizinhos ótimo  \\
+\hline                              
+Banknote Authentication		&$3$ \\
+Breast Cancer               &$11$ \\
+Ecoli                       &$9$ \\
+Fertility                   &$5$ \\
+Habermans Survival          &$9$ \\
+Iris                        &$7$ \\
+Mammographic Mass           &$11$ \\
+Pima Indians Diabetes       &$11$ \\
+Planning Relax              &$11$ \\
+Yeast                       &$9$ \\
+
+\hline
+\end{tabular}
+
+\end{table}
 
 Apesar da Árvore de decisão ter o pior resultado para 7 dos 10 conjuntos de dados avaliados aqui, seu resultado nunca é tão discrepante dos outros algorítimos, como quando o Naive bayes teve sua acurácia 5 vezes menor que o melhor resultado para o dados Yeast. Um ponto positivo da Árvore de decisão é a facilidade com que o seu resultado pode ser interpretado, mesmo por pessoas leigas quanto ao funcionamento do algorítimo. Ao produzir as Árvores de decisão, como apresentado na figura \ref{arvdecisao}, esse resultado pode ser facilmente interpretado e utilizado por outras pessoas \citep{berzal_etal2003}
 
